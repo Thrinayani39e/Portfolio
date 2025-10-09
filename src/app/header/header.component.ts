@@ -14,13 +14,13 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   onProfileClick(): void {
-    const profile = document.querySelector('.profile-photo');
+    const profile = document.querySelector('.decorative-header');
     profile?.classList.add('spin');
     setTimeout(() => profile?.classList.remove('spin'), 1000);
   }
 
   initTiltEffect(): void {
-    const cards = document.querySelectorAll('.card, .contact-item');
+    const cards = document.querySelectorAll('.contact-item');
     cards.forEach(card => {
       const element = card as HTMLElement;
       element.addEventListener('mouseenter', () => {

@@ -1,6 +1,8 @@
 <section class="section">
   <div class="section-title">Certifications</div>
   <div class="cert-grid">
-    <div class="cert-card" *ngFor="let cert of certifications"><i class="fas fa-certificate"></i> {{ cert }}</div>
+    <a class="cert-card" *ngFor="let cert of certifications" [href]="cert.url" target="_blank">
+      <i class="fas fa-certificate"></i> {{ cert.name }}
+    </a>
   </div>
 </section>

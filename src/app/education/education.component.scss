@@ -58,6 +58,19 @@
   gap: 10px;
 }
 
+.card-header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.institution-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
 .card-title {
   font-size: 1.3em;
   color: #b89dc4;
@@ -88,6 +101,10 @@
   line-height: 1.7;
 }
 
+.card-content strong {
+  color: #b89dc4; /* Match title color for consistency */
+}
+
 :host-context(.dark-mode) {
   .section, .card {
     background: transparent !important;
@@ -111,6 +128,14 @@
   .card:hover {
     box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3) !important;
   }
+
+  .institution-logo {
+    filter: brightness(0.8);
+  }
+
+  .card-content strong {
+    color: #c4b5fd !important; /* Dark mode title color */
+  }
 }
 
 @media (max-width: 768px) {
@@ -125,6 +150,17 @@
   .card-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .card-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .institution-logo {
+    width: 40px;
+    height: 40px;
   }
 
   .card-duration {

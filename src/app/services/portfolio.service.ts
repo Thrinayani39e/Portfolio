@@ -7,7 +7,10 @@ interface Experience {
   description: string[];
   startDate: Date;
 }
-
+interface Certification{
+  name:string,
+  url:string
+}
 interface Project {
   id: string;
   title: string;
@@ -166,17 +169,27 @@ export class PortfolioService {
       {
         icon: '<i class="fas fa-code"></i>',
         title: 'Languages',
-        skills: ['Java', 'C#', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'C/C++']
+        skills: ['Java', 'C#', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'C/C++', 'Node.js']
       },
       {
         icon: '<i class="fas fa-rocket"></i>',
         title: 'Frameworks',
-        skills: ['.NET', 'ASP.NET', 'Angular', 'WPF', 'FastAPI', 'SQLAlchemy', 'Jasmine', 'Karma']
+        skills: ['.NET(ASP.NET)', 'Angular', 'React', 'WPF','REST Api', 'SQLAlchemy', 'Jasmine', 'Karma', 'Node.js']
       },
       {
         icon: '<i class="fas fa-tools"></i>',
         title: 'Tools',
-        skills: ['Azure DevOps', 'Git', 'Jira', 'Visual Studio', 'Postman']
+        skills: ['Azure DevOps', 'Git', 'Visual Studio', 'Postman', 'Jira']
+      },
+      {
+        icon: '<i class="fas fa-database"></i>', // Using a database icon as a placeholder
+        title: 'Databases',
+        skills: ['SQL', 'MySQL', 'SQLite']
+      },
+      {
+        icon: '<i class="fas fa-cogs"></i>', // Using a cogs icon as a placeholder for methodologies
+        title: 'Methodologies',
+        skills: ['SCRUM', 'CI/CD', 'Agile Development', 'Code Reviews', 'Software Testing']
       },
       {
         icon: '<i class="fas fa-brain"></i>',
@@ -185,30 +198,38 @@ export class PortfolioService {
       }
     ];
   }
-
-  getEducation(): Education[] {
+  getEducation(): { degree: string; institution: string; duration: string; details?: string; coursework?: string; achievements?: string; logo: string }[] {
     return [
       {
-        degree: 'MS in Computer Science and Software Engineering',
+        degree: 'MS, Computer Science and Software Engineering',
         institution: 'University of Washington',
-        duration: 'Expected: June 2027'
+        duration: 'Expected: June 2027',
+        details: '',
+        coursework: 'Advanced Computer Vision, Algorithm Design and Analysis', 
+        achievements: '', 
+        logo: 'assets/uw-logo.png'
       },
       {
-        degree: 'B.Tech in Computer Science',
-        institution: 'Amrita Vishwa Vidyapeetham, India',
+        degree: 'Bachelor of Technology, Computer Science and Engineering',
+        institution: 'Amrita Vishwa Vidyapeetham',
         duration: 'Sep 2020 - Jul 2024',
-        details: 'Graduated with First Class with Distinction. Notable Coursework: Object-Oriented Programming (A+), Data Structures & Algorithms (A), Database Management Systems (A), Operating Systems (A), User Interface Design (A), Neural Networks & Deep Learning (A+)'
+        details: '',
+        coursework: 'Object-Oriented Programming (A+), Data Structures and Algorithms (A), Database Management Systems (A), Operating Systems (A), User Interface Design (A), Neural Networks and Deep Learning (A+)',
+        achievements: 'Graduated First class with Distinction', 
+        logo: 'assets/avv-logo.png'
       }
     ];
   }
 
-  getCertifications(): string[] {
+getCertifications(): Certification[] {
     return [
-      'Mathematics for Machine Learning Specialization',
-      'Angular for Front End Engineers',
-      'AI For Everyone',
-      'Accelerated Computer Science Fundamentals',
-      'Introduction to DevOps'
+      { name: 'Mathematics for Machine Learning Specialization', url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/LRX7LY4YQ6GX' },
+      { name: 'Angular for Front End Engineers', url: 'https://www.coursera.org/account/accomplishments/verify/8BLL6V7DT9IU' },
+      { name: 'AI For Everyone', url: 'https://www.coursera.org/account/accomplishments/verify/A7VMQRCZS4RP' },
+      { name: 'Accelerated Computer Science Fundamentals', url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/FHMLX2XWCQDR' },
+      { name: 'Introduction to DevOps', url: 'https://www.coursera.org/account/accomplishments/verify/VA7NOFYMOW4I' }
     ];
   }
+
+ 
 }

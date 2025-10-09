@@ -2,12 +2,19 @@
   <div class="section-title">Education</div>
   <div class="card" *ngFor="let edu of education">
     <div class="card-header">
-      <div>
-        <div class="card-title">{{ edu.degree }}</div>
-        <div class="card-subtitle">{{ edu.institution }}</div>
+      <div class="card-header-content">
+        <img class="institution-logo" [src]="edu.logo" [alt]="edu.institution + ' logo'" />
+        <div>
+          <div class="card-title">{{ edu.degree }}</div>
+          <div class="card-subtitle">{{ edu.institution }}</div>
+        </div>
       </div>
       <div class="card-duration">{{ edu.duration }}</div>
     </div>
-    <div class="card-content" *ngIf="edu.details">{{ edu.details }}</div>
+    <div class="card-content" *ngIf="edu.details || edu.coursework || edu.achievements">
+      <div *ngIf="edu.details">{{ edu.details }}</div>
+      <div *ngIf="edu.coursework"><strong>Coursework:</strong> {{ edu.coursework }}</div>
+      <div *ngIf="edu.achievements"><strong>Achievements:</strong> {{ edu.achievements }}</div>
+    </div>
   </div>
 </section>

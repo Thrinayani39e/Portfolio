@@ -51,12 +51,18 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(247, 221, 233, 0.3);
   font-weight: 500;
+  text-decoration: none; /* Remove default underline */
+  display: block; /* Ensure it behaves as a block for hover effects */
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(200, 180, 200, 0.15);
     border-color: rgba(247, 221, 233, 0.5);
     color: #9d7ba3;
+  }
+
+  i {
+    margin-right: 8px; /* Space between icon and text */
   }
 }
 

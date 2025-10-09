@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioService } from '../services/portfolio.service';
 
+interface Certification {
+  name: string;
+  url: string;
+}
+
 @Component({
   selector: 'app-certifications',
   standalone: true,
@@ -10,7 +15,7 @@ import { PortfolioService } from '../services/portfolio.service';
   styleUrls: ['./certifications.component.scss']
 })
 export class CertificationsComponent implements OnInit {
-  certifications: string[] = [];
+  certifications: Certification[] = [];
 
   constructor(private portfolioService: PortfolioService) {}
 

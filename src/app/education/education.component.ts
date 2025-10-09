@@ -10,7 +10,7 @@ import { PortfolioService } from '../services/portfolio.service';
   styleUrls: ['./education.component.scss']
 })
 export class EducationComponent implements OnInit {
-  education: { degree: string; institution: string; duration: string; details?: string }[] = [];
+  education: { degree: string; institution: string; duration: string; details?: string; coursework?: string; achievements?: string; logo: string }[] = [];
 
   constructor(private portfolioService: PortfolioService) {}
 

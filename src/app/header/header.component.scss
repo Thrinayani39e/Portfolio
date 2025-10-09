@@ -4,21 +4,11 @@ header {
   position: relative;
 }
 
-.profile-photo {
+.decorative-header {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f7dde9, #e3f0ff, #f0e4f5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 0 auto 25px;
-  font-size: 55px;
-  color: #9d7ba3;
-  font-family: 'Comfortaa', cursive;
-  font-weight: 700;
-  box-shadow: 0 8px 25px rgba(220, 180, 200, 0.3);
-  animation: gentlePulse 4s ease-in-out infinite;
+  position: relative;
   cursor: pointer;
   transition: all 0.5s ease;
 
@@ -30,11 +20,41 @@ header {
   &.spin {
     animation: spinProfile 1s ease-in-out;
   }
-}
 
-@keyframes gentlePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  .shape {
+    position: absolute;
+    background: linear-gradient(135deg, #f7dde9, #e3f0ff, #f0e4f5);
+    transition: all 0.5s ease;
+  }
+
+  .shape1 {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 10px;
+    left: 35px;
+    box-shadow: 0 4px 15px rgba(157, 123, 163, 0.3);
+  }
+
+  .shape2 {
+    width: 60px;
+    height: 60px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    top: 45px;
+    left: 45px;
+    background: linear-gradient(45deg, #e3f0ff, #f7dde9);
+    box-shadow: 0 4px 15px rgba(157, 123, 163, 0.3);
+  }
+
+  .shape3 {
+    width: 40px;
+    height: 100px;
+    clip-path: polygon(0 0, 100% 25%, 100% 75%, 0 100%);
+    top: 25px;
+    left: 65px;
+    background: linear-gradient(90deg, #f0e4f5, #e3f0ff);
+    box-shadow: 0 4px 15px rgba(157, 123, 163, 0.3);
+  }
 }
 
 @keyframes spinProfile {
@@ -110,6 +130,11 @@ h1 {
   .tagline {
     color: #d1d5db !important;
   }
+
+  .decorative-header .shape {
+    background: linear-gradient(135deg, #4b5563, #6b7280) !important;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  }
 }
 
 @media (max-width: 768px) {
@@ -117,10 +142,30 @@ h1 {
     font-size: 2.2em;
   }
 
-  .profile-photo {
+  .decorative-header {
     width: 120px;
     height: 120px;
-    font-size: 45px;
+
+    .shape1 {
+      width: 65px;
+      height: 65px;
+      top: 8px;
+      left: 28px;
+    }
+
+    .shape2 {
+      width: 50px;
+      height: 50px;
+      top: 35px;
+      left: 35px;
+    }
+
+    .shape3 {
+      width: 35px;
+      height: 80px;
+      top: 20px;
+      left: 50px;
+    }
   }
 
   .contact-info {
