@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="section-title">Skills</div>
+  <div class="skill-grid">
+    <div class="skill-card" *ngFor="let category of skills">
+      <h3 [innerHTML]="category.icon + ' ' + category.title"></h3>
+      <div class="skill-tags">
+        <span class="skill-tag" *ngFor="let skill of category.skills" (click)="onSkillClick($event)">
+          {{ skill }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

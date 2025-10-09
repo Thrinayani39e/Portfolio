@@ -1,0 +1,19 @@
+<section class="section timeline-section">
+  <div class="section-title">Experience & Research</div>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of timeline; let i = index" [ngClass]="{'left': i % 2 === 0, 'right': i % 2 !== 0}">
+      <div class="timeline-card card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">{{ exp.title }}</div>
+            <div class="card-subtitle">{{ exp.company }}</div>
+          </div>
+          <div class="card-duration">{{ exp.duration }}</div>
+        </div>
+        <ul class="card-content">
+          <li *ngFor="let point of exp.description">{{ point }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

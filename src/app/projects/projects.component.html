@@ -1,0 +1,44 @@
+<section class="section">
+  <div class="section-title">Projects & Publications</div>
+  <!-- Modal -->
+  <div class="modal" [class.active]="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()" *ngIf="selectedProject">
+      <button class="close-btn" (click)="closeModal()">&times;</button>
+      <div class="modal-header">
+        <h3>{{ selectedProject.title }}</h3>
+        <div class="card-date">{{ selectedProject.date }}</div>
+      </div>
+      <div class="modal-body">
+        <div class="project-description">
+          {{ selectedProject.description.join(' ') }}
+        </div>
+        <ul class="card-content">
+          <li *ngFor="let detail of selectedProject.details">{{ detail }}</li>
+        </ul>
+        <div class="tech-stack">
+          <span class="tech-badge" *ngFor="let tech of selectedProject.technologies">
+            {{ tech }}
+          </span>
+        </div>
+        <!-- Code Button -->
+        <a 
+          href="https://github.com/Thrinayani39e/{{ selectedProject.id }}" 
+          target="_blank" 
+          class="code-button" 
+          *ngIf="selectedProject.id"
+        >
+          <i class="fab fa-github"></i> Code
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects" (click)="openProjectModal(project)">
+      <div class="project-title">{{ project.title }}</div>
+      <div class="card-date">{{ project.date }}</div>
+      <div class="project-description">
+        {{ project.description.join(' ') }}
+      </div>
+    </div>
+  </div>
+</section>

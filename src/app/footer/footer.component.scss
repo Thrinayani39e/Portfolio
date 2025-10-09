@@ -1,0 +1,67 @@
+footer {
+  position: fixed; /* Fix footer to bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 20px; /* Compact padding */
+  color: #aaa;
+  font-size: 1em;
+  background: linear-gradient(135deg, #fef6fb 0%, #f4f9ff 50%, #faf5fb 100%); /* Match main page */
+  z-index: 99; /* Above content, below sidebar/theme toggle */
+}
+
+.footer-heart {
+  color: #e8b9d1;
+  animation: heartbeat 2s ease-in-out infinite;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-size: 1.2em;
+
+  &:hover {
+    transform: scale(1.6);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+}
+
+:host-context(.dark-mode) footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important; /* Match dark mode main page */
+  color: #d1d5db;
+
+  .footer-heart {
+    color: #c4b5fd;
+
+    &:hover {
+      color: #a78bfa;
+    }
+  }
+}
+
+::ng-deep .floating-heart {
+  position: fixed;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 999;
+  animation: floatUp 3s ease-out forwards;
+}
+
+@keyframes floatUp {
+  to { 
+    transform: translateY(-100vh) rotate(720deg); 
+    opacity: 0; 
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 15px 15px;
+    font-size: 0.9em;
+  }
+}

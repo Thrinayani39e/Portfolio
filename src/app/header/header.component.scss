@@ -1,0 +1,134 @@
+header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  position: relative;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f7dde9, #e3f0ff, #f0e4f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 55px;
+  color: #9d7ba3;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(220, 180, 200, 0.3);
+  animation: gentlePulse 4s ease-in-out infinite;
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(220, 180, 200, 0.4);
+  }
+
+  &.spin {
+    animation: spinProfile 1s ease-in-out;
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes spinProfile {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.15); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.8em;
+  color: #b89dc4;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 1.15em;
+  color: #8b8b8b;
+  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+.contact-item {
+  background: white;
+  padding: 10px 18px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  color: #7a7a7a;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(200, 180, 200, 0.2);
+    background: linear-gradient(135deg, #fefbfd, #f7fbff);
+    color: #9d7ba3;
+  }
+}
+
+:host-context(.dark-mode) {
+  .contact-item {
+    background: transparent !important;
+    color: #d1d5db;
+    border: 1px solid rgba(139, 92, 246, 0.2) !important;
+
+    &:hover {
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3) !important;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+      color: white !important;
+    }
+  }
+
+  h1 {
+    color: #c4b5fd !important;
+  }
+
+  .tagline {
+    color: #d1d5db !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+    font-size: 45px;
+  }
+
+  .contact-info {
+    gap: 10px;
+  }
+
+  .contact-item {
+    padding: 8px 14px;
+    font-size: 0.9em;
+  }
+}
