@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { constants } from '../services/constants'; 
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -12,7 +12,7 @@ export class HeaderComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.initTiltEffect();
   }
-
+  constant = constants;
   onProfileClick(): void {
     const profile = document.querySelector('.decorative-header');
     profile?.classList.add('spin');

@@ -201,7 +201,7 @@ export class PortfolioService {
   getEducation(): { degree: string; institution: string; duration: string; details?: string; coursework?: string; achievements?: string; logo: string }[] {
     return [
       {
-        degree: 'MS, Computer Science and Software Engineering',
+        degree: 'Master of Science, Computer Science and Software Engineering',
         institution: 'University of Washington',
         duration: 'Expected: June 2027',
         details: '',

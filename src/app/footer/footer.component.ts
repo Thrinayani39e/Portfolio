@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { constants } from '../services/constants';
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  constant = constants;
   onHeartClick(): void {
     for (let i = 0; i < 20; i++) {
       const heart = document.createElement('div');
