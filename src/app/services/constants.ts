@@ -3,7 +3,7 @@ export const constants = {
   EDUCATION_TITLE: 'Education',
   PROJECTS_AND_PUBLICATIONS_TITLE: 'Projects & Publications',
   ABOUT_ME_CONTENT: `
-    I’m Thrinayani Yedhoti, a Software Engineer pursuing an MS in Computer Science and Software Engineering at the University of Washington, starting September 2025. With a strong foundation in full-stack development, I specialize in Java, C# (ASP.NET), JavaScript/TypeScript, Angular, Python (FastAPI), and SQL. At Schneider Electric, I’ve delivered impactful solutions in industrial automation, reducing processing times by 30% and enhancing system scalability. I also contributed to their Net Carbon Zero initiative, developing a sustainability project with Python and FastAPI, and co-authored an in-progress white paper.
+    I’m Thrinayani Yedhoti, a Software Engineer pursuing an MS in Computer Science and Software Engineering at the University of Washington, starting September 2025. With a strong foundation in full-stack development, I specialize in Java, C# (ASP.NET), JavaScript/TypeScript, Angular, Python (FastAPI), and SQL. At Schneider Electric, I’ve delivered impactful solutions in industrial automation, reducing processing times by 30% and enhancing system scalability. I also contributed to their Net Carbon Zero initiative, developing a sustainability project with Python and FastAPI.
     I hold a B.Tech in Computer Science from Amrita Vishwa Vidyapeetham (2020-2024), graduating with First Class Distinction and excelling in courses like Object-Oriented Programming, Data Structures and Algorithms, Database Management Systems, Operating Systems, User Interface Design, and Neural Networks.
     
   `,
