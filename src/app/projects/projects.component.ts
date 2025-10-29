@@ -29,23 +29,37 @@ export class ProjectsComponent implements OnInit {
     this.selectedProject = { ...project };
     this.showModal = true;
 
-    // Force scroll to top of modal on open
-    setTimeout(() => {
-      const modal = this.el.nativeElement.querySelector('.modal');
-      if (modal) {
-        modal.scrollTop = 0;
-        window.scrollTo(0, 0); // Ensure page doesn't stay scrolled
-      }
+    // Capture current scroll position
+    const scrollY = window.scrollY;
 
-      // Add body lock on mobile
-      this.renderer.addClass(document.body, 'modal-open');
-    }, 50);
+    setTimeout(() => {
+      // Lock body scroll
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.renderer.setStyle(document.body, 'position', 'fixed');
+      this.renderer.setStyle(document.body, 'width', '100%');
+      this.renderer.setStyle(document.body, 'top', `-${scrollY}px`);
+
+      // Ensure modal starts at top
+      window.scrollTo(0, 0);
+    }, 10);
   }
 
   closeModal(): void {
+    // Get saved scroll position
+    const scrollY = document.body.style.top;
+    const scrollPosition = parseInt(scrollY || '0') * -1;
+
+    // Unlock body
+    this.renderer.setStyle(document.body, 'overflow', '');
+    this.renderer.setStyle(document.body, 'position', '');
+    this.renderer.setStyle(document.body, 'width', '');
+    this.renderer.setStyle(document.body, 'top', '');
+
     this.showModal = false;
     this.selectedProject = null;
-    this.renderer.removeClass(document.body, 'modal-open');
+
+    // Restore exact scroll position
+    window.scrollTo(0, scrollPosition);
   }
 
   truncateDescription(desc: string[]): string {
