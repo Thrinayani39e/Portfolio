@@ -29,7 +29,6 @@ export class ProjectsComponent implements OnInit {
     this.selectedProject = { ...project };
     this.showModal = true;
 
-    // Capture current scroll position
     const scrollY = window.scrollY;
 
     setTimeout(() => {
@@ -39,13 +38,16 @@ export class ProjectsComponent implements OnInit {
       this.renderer.setStyle(document.body, 'width', '100%');
       this.renderer.setStyle(document.body, 'top', `-${scrollY}px`);
 
-      // Ensure modal starts at top
+      // Force modal into view
       window.scrollTo(0, 0);
-    }, 10);
+      const modal = this.el.nativeElement.querySelector('.modal');
+      if (modal) {
+        modal.scrollTop = 0;
+      }
+    }, 100);
   }
 
   closeModal(): void {
-    // Get saved scroll position
     const scrollY = document.body.style.top;
     const scrollPosition = parseInt(scrollY || '0') * -1;
 
@@ -58,7 +60,7 @@ export class ProjectsComponent implements OnInit {
     this.showModal = false;
     this.selectedProject = null;
 
-    // Restore exact scroll position
+    // Restore scroll
     window.scrollTo(0, scrollPosition);
   }
 
