@@ -96,11 +96,10 @@
   display: inline-block;
 }
 
-/* UNIFORM FONT SIZE - CARD & MODAL */
 .project-description {
-  font-size: 1rem !important;
+  font-size: 0.95em;
   color: #6b6b6b;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-top: 8px;
 }
 
@@ -251,6 +250,13 @@
   }
 }
 
+/* Body Lock when Modal Open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
 /* Dark Mode */
 :host-context(.dark-mode) {
   .section, .project-card, .modal-content, .card-date {
@@ -260,7 +266,7 @@
   }
 
   .section-title, .project-title, .modal-header h3 {
-    color: lightpurple !important;
+    color: #c4b5fd !important;
   }
 
   .project-description, .modal-body, .card-content li {
@@ -301,13 +307,9 @@
   .modal {
     background: rgba(0, 0, 0, 0.7);
   }
-
-  .project-description {
-    color: #d1d5db !important;
-  }
 }
 
-/* MOBILE RESPONSIVE - MODAL ALWAYS VISIBLE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .section-title {
     font-size: 1.6em;
@@ -336,23 +338,24 @@
     font-size: 1.25em;
   }
 
+  .project-description {
+    font-size: 0.9em;
+  }
+
   .modal.active {
-    align-items: flex-start !important;
-    padding: 0 !important;
-    overflow: hidden;
+    align-items: flex-start;
+    padding: 0;
   }
 
   .modal-content {
-    width: 100% !important;
-    max-width: none !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    border-radius: 0 !important;
-    padding: 80px 20px 120px !important;
-    margin-top: 0 !important;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    padding: 60px 20px 80px;
+    margin-top: 0;
     animation: slideUpMobile 0.4s ease;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
   }
 
   @keyframes slideUpMobile {
