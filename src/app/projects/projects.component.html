@@ -1,23 +1,7 @@
 <section class="section">
-  <!-- STICKY TITLE -->
-  <div class="section-title sticky-title">Projects & Publications</div>
+  <div class="section-title">Projects & Publications</div>
 
-  <!-- SCROLLABLE PROJECTS CONTAINER -->
-  <div class="projects-container">
-    <div class="projects-grid">
-      <div class="project-card"
-           *ngFor="let project of projects"
-           (click)="openProjectModal(project)">
-        <div class="project-title">{{ project.title }}</div>
-        <div class="card-date">{{ project.date }}</div>
-        <div class="project-description">
-          {{ truncateDescription(project.description) }}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FULL-SCREEN MODAL -->
+  <!-- Modal -->
   <div class="modal" [class.active]="showModal" (click)="closeModal()">
     <div class="modal-content" (click)="$event.stopPropagation()" *ngIf="selectedProject">
       <button class="close-btn" (click)="closeModal()">&times;</button>
@@ -43,6 +27,18 @@
            *ngIf="selectedProject.id">
           <i class="fab fa-github"></i> Code
         </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card"
+         *ngFor="let project of projects"
+         (click)="openProjectModal(project)">
+      <div class="project-title">{{ project.title }}</div>
+      <div class="card-date">{{ project.date }}</div>
+      <div class="project-description">
+        {{ truncateDescription(project.description) }}
       </div>
     </div>
   </div>
