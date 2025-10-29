@@ -29,23 +29,43 @@ export class ProjectsComponent implements OnInit {
     this.selectedProject = { ...project };
     this.showModal = true;
 
-    // Force scroll to top of modal on open
+    // Capture current scroll position
+    const scrollY = window.scrollY;
+
     setTimeout(() => {
-      const modal = this.el.nativeElement.querySelector('.modal');
+      // Lock body scroll
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+      this.renderer.setStyle(document.body, 'position', 'fixed');
+      this.renderer.setStyle(document.body, 'width', '100%');
+      this.renderer.setStyle(document.body, 'top', `-${scrollY}px`);
+
+      // Modal is full-screen → always visible
+      window.scrollTo(0, 0);
+
+      // Optional: Ensure modal content starts at top
+      const modal = this.el.nativeElement.querySelector('.modal-content');
       if (modal) {
         modal.scrollTop = 0;
-        window.scrollTo(0, 0); // Ensure page doesn't stay scrolled
       }
-
-      // Add body lock on mobile
-      this.renderer.addClass(document.body, 'modal-open');
-    }, 50);
+    }, 100); // Allow DOM update
   }
 
   closeModal(): void {
+    // Retrieve saved scroll position
+    const scrollY = document.body.style.top;
+    const scrollPosition = parseInt(scrollY || '0', 10) * -1;
+
+    // Unlock body
+    this.renderer.setStyle(document.body, 'overflow', '');
+    this.renderer.setStyle(document.body, 'position', '');
+    this.renderer.setStyle(document.body, 'width', '');
+    this.renderer.setStyle(document.body, 'top', '');
+
     this.showModal = false;
     this.selectedProject = null;
-    this.renderer.removeClass(document.body, 'modal-open');
+
+    // Restore exact scroll position
+    window.scrollTo(0, scrollPosition);
   }
 
   truncateDescription(desc: string[]): string {
@@ -55,14 +75,17 @@ export class ProjectsComponent implements OnInit {
 
   observeSections(): void {
     const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
   }
 }
