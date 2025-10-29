@@ -1,4 +1,5 @@
-.sidebar-nav {
+// Desktop Sidebar
+.sidebar-nav.desktop-nav {
   position: fixed;
   left: 20px;
   top: 50%;
@@ -35,18 +36,101 @@
   }
 }
 
-:host-context(.dark-mode) .sidebar-nav {
-  background: rgba(0, 0, 0, 0.6) !important;
+// Mobile Bottom Navigation
+.mobile-bottom-nav {
+  display: none; // Hidden on desktop
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(220, 180, 200, 0.2);
+  padding: 8px 0;
+  z-index: 100;
+  box-shadow: 0 -4px 20px rgba(220, 180, 200, 0.15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
   a {
-    color: #c4b5fd;
-    &:hover, &.router-link-active {
-      color: #a78bfa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b89dc4;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 6px 8px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-width: 50px;
+
+    i {
+      font-size: 1.3em;
+      margin-bottom: 4px;
+    }
+
+    span {
+      font-weight: 500;
+    }
+
+    &.active,
+    &:hover {
+      color: #9d7ba3;
+      background: rgba(247, 221, 233, 0.3);
+      transform: translateY(-2px);
+    }
+
+    &.active i {
+      transform: scale(1.1);
     }
   }
 }
 
+// Dark Mode Support
+:host-context(.dark-mode) {
+  .desktop-nav {
+    background: rgba(30, 30, 50, 0.8) !important;
+
+    a {
+      color: #c4b5fd;
+
+      &:hover, &.router-link-active {
+        color: #a78bfa;
+        background: rgba(139, 92, 246, 0.2);
+      }
+    }
+  }
+
+  .mobile-bottom-nav {
+    background: rgba(20, 20, 40, 0.95) !important;
+    border-top: 1px solid rgba(139, 92, 246, 0.2);
+
+    a {
+      color: #c4b5fd;
+
+      &.active, &:hover {
+        color: #e0d6ff;
+        background: rgba(139, 92, 246, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive Behavior
 @media (max-width: 768px) {
-  .sidebar-nav {
-    display: none;
+  .sidebar-nav.desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-bottom-nav {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important;
   }
 }
