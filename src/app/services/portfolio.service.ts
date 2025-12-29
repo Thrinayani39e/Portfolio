@@ -94,6 +94,19 @@ export class PortfolioService {
 
   getProjects(): Project[] {
     return [
+      {
+        id: 'Fast_Marching_Method_Ride_the_Wave',
+        title: 'Fast Marching Method: Ride the Wave!',
+        date: 'December 2025',
+        description: [
+          'A course project for CSS587 at the University of Washington, focused on optimal seamlines using the Fast Marching Method for image stitching with large parallax.',
+          'Worked with Lawrence Sanchez, Engineering Director of Minecraft for this project',
+          'Built using OpenCV (v4.11.0 with contrib modules) for core computer vision functionality.'
+        ],
+        details: [
+        ],
+        technologies: ['C++', 'OpenCV', 'Computer Vision', 'CMake', 'Image Processing', 'Perl']
+      },
         {
         id: 'Portfolio',
         title: 'Portfolio',
@@ -111,11 +124,12 @@ export class PortfolioService {
         title: 'Network Anomaly Detection using SNNs',
         date: 'July 2024',
         description: [
-          'Developed an advanced system using Spiking Neural Networks for real-time threat identification.'
-        ],
-        details: [
+          'Developed an advanced system using Spiking Neural Networks for real-time threat identification.',
           'Real-time anomaly detection with high accuracy.',
           'Optimized for low-latency processing.'
+        ],
+        details: [
+          
         ],
         technologies: ['Python', 'TensorFlow', 'Spiking Neural Networks']
       },
